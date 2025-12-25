@@ -1,1 +1,0 @@
-sudo pacman -Sy i3 i3blocks i3status i3lock dmenu xorg xwallpaper kitty alacritty picom brightnessctl xclip
