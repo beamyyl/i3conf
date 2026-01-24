@@ -16,6 +16,7 @@ set $wm_setting_key_right     Right
 ### Application Variables ###
 set $wm_setting_app_terminal  alacritty
 set $wm_setting_app_launcher  i3-dmenu-desktop
+#set $wm_setting_app_launcher  rofi -show drun
 set $wm_setting_app_files     thunar
 #set $wm_setting_app_files     pcmanfm
 
