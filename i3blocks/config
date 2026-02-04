@@ -1,0 +1,24 @@
+separator=false
+markup=pango
+separator_block_width=10
+
+[apps]
+full_text=<span background="#3B4252" color="#81A1C1"> 󰍜 Apps </span>
+command=rofi -show drun
+
+[battery]
+command=sh -c 'echo "<span background=\"#3B4252\" color=\"#ECEFF4\">   $(cat /sys/class/power_supply/BAT0/capacity)% </span>"'
+interval=30
+
+[volume]
+command=sh -c 'wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk "{print \"󰕾 \" int(\$2*100)\"%\"}" | xargs -I {} echo "<span background=\"#3B4252\" color=\"#ECEFF4\"> {} </span>"'
+interval=1
+command_click=pavucontrol
+
+[clock]
+command=date '+<span background="#3B4252" color="#ECEFF4">  %H:%M %d/%m/%Y </span>'
+interval=1
+
+[logout]
+full_text=<span background="#3B4252" color="#BF616A"> 󰗼 Exit </span>
+command=i3-msg exit
