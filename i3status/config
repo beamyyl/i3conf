@@ -1,10 +1,9 @@
 general {
-        colors = true
-        interval = 5
-#	color_good      = "#A3BE8C" # Green
-	color_good      = "#81A1C1" # Blue
-    	color_degraded  = "#EBCB8B" # Yellow
-    	color_bad       = "#BF616A" # Red
+    colors = true
+    interval = 5
+    color_good      = "#9ae17b"
+    color_degraded  = "#e0af68"
+    color_bad       = "#f7768e"
 }
 
 order += "wireless _first_"
@@ -13,19 +12,19 @@ order += "battery all"
 order += "tztime local"
 
 wireless _first_ {
-        format_up = "W: (%quality at %essid)"
-        format_down = "W: down"
+    format_up = "W: (%quality at %essid)"
+    format_down = "W: down"
 }
 
 ethernet _first_ {
-        format_up = "E: up"
-        format_down = "E: down"
+    format_up = "E: up"
+    format_down = "E: down"
 }
 
 battery all {
-        format = "%status %percentage"
+    format = "%status %percentage"
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M"
+    format = "%Y-%m-%d %H:%M"
 }
