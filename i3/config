@@ -16,17 +16,20 @@ set $wm_setting_key_right     Right
 ### Application Variables ###
 set $wm_setting_app_terminal  alacritty
 set $wm_setting_app_launcher  rofi -show drun
-set $wm_setting_app_files     pcmanfm
+set $wm_setting_app_files      pcmanfm
 
-set $wm_color_border_active_bg        #81A1C1
-set $wm_color_border_active_fg        #3B4252
-set $wm_color_border_inactive_bg      #3B4252
-set $wm_color_border_inactive_fg      #D8DEE9
-set $wm_color_background              #2E3440
+set $wm_color_border_active_bg        #7aa2f7
+set $wm_color_border_active_fg        #1a1b26
+set $wm_color_border_inactive_bg      #24283b
+set $wm_color_border_inactive_fg      #c0caf5
+set $wm_color_background              #1a1b26
 
 ### Fix for app startup delay ###
 exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY I3SOCK XDG_CURRENT_DESKTOP=i3
 exec --no-startup-id /usr/libexec/xdg-desktop-portal-gtk &
+
+### Launch Polybar ###
+exec_always --no-startup-id killall -q polybar; polybar main &
 
 ### Applications ###
 # Start terminal
@@ -119,40 +122,20 @@ bindsym $mod+$smod+r mode "resize"
 ### Gaps ###
 gaps horizontal $wm_setting_gap_width
 gaps vertical   $wm_setting_gap_heigth
-smart_gaps on
+#smart_gaps on
 
 ### Borders ###
 default_border pixel $wm_setting_border_size
 default_floating_border pixel $wm_setting_border_size
-smart_borders on
+#smart_borders on
 
 ### Colors ###
 client.focused          $wm_color_border_active_bg   $wm_color_border_active_bg   $wm_color_border_active_fg   $wm_color_border_active_bg
 client.focused_inactive $wm_color_border_inactive_bg $wm_color_border_inactive_bg $wm_color_border_inactive_fg $wm_color_border_inactive_bg
 client.unfocused        $wm_color_border_inactive_bg $wm_color_border_inactive_bg $wm_color_border_inactive_fg $wm_color_border_inactive_bg
-client.urgent           $wm_color_border_inactive_bg $wm_color_border_inactive_bg $wm_color_border_inactive_fg $wm_color_border_inactive_bg
+client.urgent           #f7768e                      #f7768e                      #1a1b26                      #f7768e
 client.placeholder      $wm_color_border_inactive_bg $wm_color_border_inactive_bg $wm_color_border_inactive_fg $wm_color_border_inactive_bg
 client.background       $wm_color_background
-
-### i3bar ###
-bar {
-    position         top
-    status_command   i3blocks
-    font             pango:Iosevka Nerd Font, Bold 11
-    separator_symbol " "
-    tray_output      primary
-
-    colors {
-        background   #2E3440
-        statusline   #ECEFF4
-        separator    #4C566A
-
-        focused_workspace  #81A1C1 #81A1C1 #2E3440
-        active_workspace   #81A1C1 #81A1C1 #2E3440
-        inactive_workspace #3B4252 #3B4252 #D8DEE9
-        urgent_workspace   #BF616A #BF616A #ECEFF4
-    }
-}
 
 ### Miscellaneous settings ###
 font $wm_setting_font
