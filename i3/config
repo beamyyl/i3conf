@@ -24,9 +24,11 @@ set $wm_color_border_inactive_bg      #24283b
 set $wm_color_border_inactive_fg      #c0caf5
 set $wm_color_background              #1a1b26
 
-### Fix for app startup delay ###
+### Autostart ###
 exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY I3SOCK XDG_CURRENT_DESKTOP=i3
 exec --no-startup-id /usr/libexec/xdg-desktop-portal-gtk &
+exec --no-startup-id blueman-applet
+exec --no-startup-id nm-applet
 
 ### Launch Polybar ###
 exec_always --no-startup-id killall -q polybar; polybar main &
