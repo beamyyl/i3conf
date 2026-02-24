@@ -31,7 +31,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
 
 ### Launch Polybar ###
-exec_always --no-startup-id killall -q polybar; polybar main &
+exec_always --no-startup-id "killall -q polybar; polybar main &"
 
 ### Applications ###
 # Start terminal
@@ -122,6 +122,8 @@ mode "resize" {
 bindsym $mod+$smod+r mode "resize"
 
 ### Gaps ###
+gaps inner 5
+gaps outer 5
 gaps horizontal $wm_setting_gap_width
 gaps vertical   $wm_setting_gap_heigth
 #smart_gaps on
