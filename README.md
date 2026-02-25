@@ -1,4 +1,4 @@
-required apps: i3 polybar xorg any_terminal_emulator picom xclip nerdfonts
+required apps: i3 polybar xorg any_terminal_emulator picom xclip nerdfonts dunst libnotify
 
 optional but recommended apps: i3status i3lock brightnessctl xwallpaper i3blocks dmenu
 
