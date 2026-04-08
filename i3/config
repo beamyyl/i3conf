@@ -30,21 +30,12 @@ exec --no-startup-id /usr/libexec/xdg-desktop-portal-gtk &
 exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
 exec_always --no-startup-id dunst &
-
-### Launch Polybar ###
 exec_always --no-startup-id "killall -q polybar; polybar main &"
 
 ### Applications ###
-# Start terminal
 bindsym Control+$amod+t exec $wm_setting_app_terminal
-
-# Start file manager
 bindsym $mod+e exec $wm_setting_app_files
-
-# Start program launcher
 bindsym $mod+r exec $wm_setting_app_launcher
-
-# Screenshot
 bindsym Print exec --no-startup-id "maim -s | xclip -selection clipboard -t image/png"
 
 ### Workspaces ###
@@ -81,12 +72,9 @@ bindsym $mod+$smod+8 move container to workspace $ws8
 bindsym $mod+$smod+9 move container to workspace $ws9
 bindsym $mod+$smod+0 move container to workspace $ws10
 
-### Audio
 bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle
-
-### Brightness (with brightnessctl)
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
@@ -118,8 +106,6 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
-# Enter Resize Mode
 bindsym $mod+$smod+r mode "resize"
 
 ### Gaps ###
